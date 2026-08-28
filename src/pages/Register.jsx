@@ -23,10 +23,12 @@ function Register() {
     e.preventDefault();
 
     try {
-      await axios.post(
-        "http://localhost:5000/register",
+      const res = await axios.post(
+        "https://recipevault-backend-8l39.onrender.com/register",
         user
       );
+
+      console.log("Success:", res.data);
 
       alert("Registration Successful!");
 
@@ -37,7 +39,14 @@ function Register() {
       });
 
     } catch (error) {
-      alert("Registration Failed");
+      console.log("Register Error:", error);
+      console.log("Response:", error?.response?.data);
+
+      alert(
+        error?.response?.data?.message ||
+        error.message ||
+        "Registration Failed"
+      );
     }
   };
 
@@ -57,6 +66,7 @@ function Register() {
             placeholder="Name"
             value={user.name}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -65,6 +75,7 @@ function Register() {
             placeholder="Email"
             value={user.email}
             onChange={handleChange}
+            required
           />
 
           <div
@@ -80,6 +91,7 @@ function Register() {
               placeholder="Password"
               value={user.password}
               onChange={handleChange}
+              required
               style={{
                 width: "100%",
                 padding: "12px",

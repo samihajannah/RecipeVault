@@ -26,7 +26,7 @@ function Login() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/login",
+        "https://recipevault-backend-8l39.onrender.com/login",
         user
       );
 

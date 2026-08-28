@@ -9,7 +9,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/recipes")
+      .get("https://recipevault-backend-8l39.onrender.com/recipes")
       .then((res) => {
         setRecipes(res.data.recipes);
       })

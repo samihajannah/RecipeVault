@@ -24,7 +24,7 @@ function Register() {
 
     try {
       await axios.post(
-        "http://localhost:5000/register",
+        "https://recipevault-backend-8l39.onrender.com/register",
         user
       );
 

@@ -13,7 +13,7 @@ function Admin() {
 
   const fetchRecipes = () => {
     axios
-      .get("http://localhost:5000/recipes")
+      .get("https://recipevault-backend-8l39.onrender.com/recipes")
       .then((res) => {
         setRecipes(res.data.recipes);
       })
@@ -36,7 +36,7 @@ function Admin() {
   const addRecipe = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/recipes",
+        "https://recipevault-backend-8l39.onrender.com/recipes",
         {
           title: newRecipe.title,
           description: newRecipe.description,
@@ -66,7 +66,7 @@ function Admin() {
   const deleteRecipe = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/recipes/${id}`
+        `https://recipevault-backend-8l39.onrender.com/recipes/${id}`
       );
 
       alert("Recipe Deleted Successfully!");
